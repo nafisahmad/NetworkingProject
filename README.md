@@ -7,7 +7,7 @@
 
    >TCP/IP or “Transmission Control Protocol / Internet Protocol” is basically a network protocol that defines the details of how data is sent and received in a network.
 
-   >This project allows a common server-client(s) communication portal using TCP/IP Protocol. In layman's term , just like any social media application (say, Whatsapp), it allows a common group chat among all the clients. At the same time server also acts as a history tracker of all the communication happened along with the connection status of each client. 
+   >This project creates a common server-client(s) communication portal using TCP/IP Protocol. In layman's term , just like any social media application (say, Whatsapp), it allows a common group chat among all the clients. At the same time server also acts as a history tracker of all the communication happened along with the connection status of each client. 
 
 
 2. ### **How to run**
@@ -75,7 +75,7 @@
           Similarly, many clients can be connected with server and each other as 
           well and at the same time communication can be started. 
           
-           Communication among server and 3 clients is shown in the gif below :
+           Communication among server and 3 clients is shown in the gif below in Results section :
 
  3. ### **Tech Stack Used**
       
@@ -85,8 +85,8 @@
 
       * *Programming Language* -- *C 17*
 
-      * *Protocol* -- ** CP/IP**
-
+      * *Protocol* -- *TCP/IP*
+      
     
 
 4. ### **Important Logic Used**
@@ -99,7 +99,7 @@
 
 
 
-    2. >As can be seen from the above image, TCP/IP Model is much simpler than OSI  Model in terms of layering. OSI Model uses 7 layers while TCP/IP Model uses just  4 layers by cobining various layers.
+    2. >As can be seen from the above image, TCP/IP Model is much simpler than OSI  Model in terms of layering. OSI Model uses 7 layers while TCP/IP Model uses just  4 layers by combining various layers.
 
 
     3. >Each logic has been represented in the code using separate functions to make it more understandable.  
@@ -130,7 +130,7 @@
               listen(listenfd, 10)
              ```
 
-             After successful creation and binding of socket, *listen()* comes into picture, where server waits for client's connection using listenfd which is a listening socket file descriptor.
+             After successful creation and binding of socket, *listen()* comes into picture, where server waits for client's connection using listenfd which is a listening socket descriptor.
 
           4. **Accepting the request**
 
@@ -155,7 +155,7 @@
              ```   
           
           Number of clients which can enter the communication portal,
-          Maximum buffer capacity and Client's name length - all are controlled by macro defined globally whose values can be controlled by just changing the values of MACRO. 
+          Maximum buffer capacity and Client's name length - all are controlled by macro defined globally whose values can be changed by just changing the values of MACRO. 
 
           By doing so, it makes the code more compatible and simpler to handle.
 
@@ -170,7 +170,7 @@
              
              * It helps in keeping the track on which client has joined or left the meeting
              
-             * Client id facilitates in distinguishing client's with same name.
+             * Client id facilitates in distinguishing clients with same name.
              
 
          4. **Addition of new client**
@@ -191,7 +191,7 @@
              ```
            
              The logic used for adding new client to the queue (on connection request)
-             is implemented using the for loop and only  if following conditions are met :-
+             is implemented using the for loop and client is added only  if following conditions are met :-
                * CLIENTS MAXIMUM CAPACITY is not reached
 
                * That CLIENT already not exist in the meeting
@@ -219,7 +219,7 @@
              ```
            
              Similar logic is used for removing new client from the queue (on connection request).This loop keeps track of which client left the meeting.
-             is implemented using the for loop and only  if following conditions are met :-
+             It is implemented using the for loop and client is added only  if following conditions are met :-
                * CLIENTS MAXIMUM CAPACITY is not reached
 
                * That CLIENT was present in the meeting
@@ -248,7 +248,7 @@
                }
 
               ```
-             Client's address is also displayed by the server usingsin_addr family and some mathematical manipulation of shifting of data. 
+             Client's address is also displayed by the server usingsin_addr family and  mathematical implementation of shifting of data. 
         
        9.  **Threading**
            ```c
@@ -297,7 +297,7 @@
               send(sockfd, client_name, MAX_NAME_LENGTH, 0);
             ```
             
-            Client shares it's name with the server and gets connected in the portal.
+            Client shares it's name with the server and gets connected to the server and other clients.
           
         2.  **Sending & Receiving Threads**
               ```c
@@ -308,7 +308,7 @@
                   }
               ```  
          
-            Two threads are used : one for sending the message and other for receiving the message. Sending thread logic has been shown above.
+            Two threads are used : one for sending the message and other for receiving the message. 'Sending-thread' logic has been shown above.
 
 
           
@@ -317,7 +317,7 @@
         
 
 5. ### **Results & Outputs Obtained**    
-      Result and output for 3-clients server communication system has been depicted below.
+      Result and output for 3-clients 1-server communication system has been depicted below.
       It has been shown both as a gif as well as in form of images :-
       
       Port number taken in gif is 4444, and port number taken in images is 9999.
@@ -365,7 +365,7 @@
 
 6. ### **Future goals of the project:**
 
-   * As the 4-week-long  weekly lectures (by IIT-R ACM Student Chapter) were passing, my interest and knowledge in the domain of networking system also gradually increased. To be honest, before that , I had negligible knowledge in that domain.
+   * As the 4-week-long  weekly lectures conducted by 'IIT-R ACM Student Chapter' passed, my interest and knowledge in the domain of networking system also gradually increased. To be honest, before that , I had negligible knowledge in that domain.
    
    * But once I was introduced with the world of networking and client-server communication model, my interest in it started increasing exponentially.
    The concepts developed during the 4-week-long discussion period, made me confident in bringing up something new from it. This project is the product of all the knowlege I gained through discussions and references study maerial.
@@ -383,12 +383,12 @@
             
             * Removing particular client with/without its concern
             
-            * Saving the data tracked in a encrypted manner in a text file. Hence,if in future there comes the need to produce the data of what happened durin the past meetings, then it could be displayed by the server(admin).
+            * Saving the communication-data in an encrypted manner in a text file. Hence,if in future there comes the need to produce the data of what happened during the past meetings, then it could be displayed by the server(admin).
 
 
-        3.   In current project, each client enters the meeting through his/her name which is then assigned a unique client id. So, in order to increase the security of the system, proper *authentication* can be set-up wherein client is required to enter his/her Username as well as *password*   
+        3.   In current project, each client enters the meeting through his/her name which is then assigned a unique client id. So, in order to increase the security of the system, proper *authentication* portal can be set-up where-in client is required to enter his/her username as well as *password*   
   
-       4.  Current project takes care of the sharing/transfer of messages/tweets and  history tracker. I would like to ensure sharing of files also. Like there can be transfer of files among clients which includes modification, concatenation of file data.
+       4.  Current project takes care of the sharing/transfer of messages/tweets and  history tracker. Last but not the least , I would like to ensure sharing of files also. Like there can be transfer of files among clients which includes modification, concatenation of file data.
      
 
 
