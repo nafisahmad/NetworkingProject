@@ -316,32 +316,51 @@
 
         
 
-5. ### **Results Obtained**    
+5. ### **Results & Outputs Obtained**    
+      Result and output for 3-clients server communication system has been depicted below.
+      It has been shown both as a gif as well as in form of images :-
       
-      Result's output has been shown as a gif as well as in form of images in steps below :-
+      Port number taken in gif is 4444, and port number taken in images is 9999.
+     
+    ### gif
+
       ![Project_Demonstration](https://user-images.githubusercontent.com/73752812/109420952-39e51a00-79fb-11eb-9d91-825f90a98c2f.gif)
 
-![step-1](https://user-images.githubusercontent.com/73752812/109421313-c5ab7600-79fc-11eb-87e3-cfa2b0819bb8.png)
+    ### Images:-
 
-![step-2](https://user-images.githubusercontent.com/73752812/109421315-c6dca300-79fc-11eb-9206-1a893dbac660.png)
+       STEP-1
 
-![step-3](https://user-images.githubusercontent.com/73752812/109421317-c80dd000-79fc-11eb-800a-4c49418f7cf7.png)
+     ![step-1](https://user-images.githubusercontent.com/73752812/109421313-c5ab7600-79fc-11eb-87e3-cfa2b0819bb8.png)
 
-![step-4](https://user-images.githubusercontent.com/73752812/109421320-c93efd00-79fc-11eb-9319-988e83ed9a35.png)
+        STEP-2
+      ![step-2](https://user-images.githubusercontent.com/73752812/109421315-c6dca300-79fc-11eb-9206-1a893dbac660.png)
 
-![step-5](https://user-images.githubusercontent.com/73752812/109421321-ca702a00-79fc-11eb-9e04-b04bcb14195d.png)
+        STEP-3
+      ![step-3](https://user-images.githubusercontent.com/73752812/109421317-c80dd000-79fc-11eb-800a-4c49418f7cf7.png)
 
-![step-6](https://user-images.githubusercontent.com/73752812/109421324-cc39ed80-79fc-11eb-9373-9caecf6477cc.png)
+        STEP-4
+      ![step-4](https://user-images.githubusercontent.com/73752812/109421320-c93efd00-79fc-11eb-9319-988e83ed9a35.png)
 
-![step-7](https://user-images.githubusercontent.com/73752812/109421328-cd6b1a80-79fc-11eb-9b92-0354b675ca8f.png)
+        STEP-5
+      ![step-5](https://user-images.githubusercontent.com/73752812/109421321-ca702a00-79fc-11eb-9e04-b04bcb14195d.png)
 
-![step-8](https://user-images.githubusercontent.com/73752812/109421329-cf34de00-79fc-11eb-87ea-1633559e0705.png)
+        STEP-6
+      ![step-6](https://user-images.githubusercontent.com/73752812/109421324-cc39ed80-79fc-11eb-9373-9caecf6477cc.png)
 
-![step-9](https://user-images.githubusercontent.com/73752812/109421331-d0660b00-79fc-11eb-8b40-a208b0597ac5.png)
+        STEP-7
+      ![step-7](https://user-images.githubusercontent.com/73752812/109421328-cd6b1a80-79fc-11eb-9b92-0354b675ca8f.png)
 
-![step-10](https://user-images.githubusercontent.com/73752812/109421333-d1973800-79fc-11eb-9359-4de00ff0615f.png)
+        STEP-8
+      ![step-8](https://user-images.githubusercontent.com/73752812/109421329-cf34de00-79fc-11eb-87ea-1633559e0705.png)
 
-![step-11](https://user-images.githubusercontent.com/73752812/109421335-d2c86500-79fc-11eb-8b44-96084de9163f.png)
+        STEP-9
+      ![step-9](https://user-images.githubusercontent.com/73752812/109421331-d0660b00-79fc-11eb-8b40-a208b0597ac5.png)
+
+        STEP-10
+      ![step-10](https://user-images.githubusercontent.com/73752812/109421333-d1973800-79fc-11eb-9359-4de00ff0615f.png)
+
+        STEP-11
+      ![step-11](https://user-images.githubusercontent.com/73752812/109421335-d2c86500-79fc-11eb-8b44-96084de9163f.png)
 
 
 6. ### **Future goals of the project:**
