@@ -216,17 +216,17 @@ int main(int argc, char **argv){
 			continue;
 		}
 
-		/* Client settings */
+		/* Client-side settings */
 		user_type *client = (user_type *)malloc(sizeof(user_type));
 		client->address = ip_client;
 		client->sockfd = connfd;
 		client->client_id = client_id++;
 
-		/* Add client to the queue and fork thread */
+		/* Adding client to the queue and fork thread */
 		new_client_connect(client);
 		pthread_create(&tid, NULL, &handle_client, (void*)client);
 
-		/* Reduce CPU usage */
+		/* Reduces CPU usage */
 		sleep(1);
 	}
 

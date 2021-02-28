@@ -109,7 +109,7 @@
         * ### Server-end Working:
           
           
-          1. **Creation of socket** in the provided port number
+          1. **Creation of socket** 
                ```c
                listenfd = socket(AF_INET, SOCK_STREAM, 0);
                ```  
@@ -139,14 +139,16 @@
               ```
               Server *accepts* the data packet from client and is all set for communication
 
-          ## *New Features Added* :
+          ## *New Features Added in server-side* :
 
-          1. ```c
+          1. **Signal() function**
+             ```c
               signal(SIGPIPE, SIG_IGN);
               ```
               In order to ignore the PIPE Signals ( SIGPIPE ), *SIG_IGN*  handler is passed.
           
-          2. ```c
+          2. **MACRO**
+             ```c
               #define CLIENTS_MAX_CAPACITY 90
               #define BUFFER_MAX_CAPACITY 4096
               #define MAX_NAME_LENGTH 50
@@ -157,7 +159,8 @@
 
           By doing so, it makes the code more compatible and simpler to handle.
 
-         3. ```c
+         3. **Using Client_id**
+            ```c
               static int client_id = 10;
              ```
 
@@ -170,7 +173,9 @@
              * Client id facilitates in distinguishing client's with same name.
              
 
-         4. ```c
+         4. **Addition of new client**
+         
+            ```c
               void new_client_connect(user_type *clien){
 	            pthread_mutex_lock(&clients_mutex);
 
@@ -194,7 +199,8 @@
 
 
 
-         5.  ```c
+         5. **Removal of client** 
+            ```c
               void existing_client_disconnect(int client_id){
 	             pthread_mutex_lock(&clients_mutex);
 
@@ -219,18 +225,20 @@
                * That CLIENT was present in the meeting
                
 
-        5.  ```c
+        5.  **Handling messages**
+            ```c
                void sending_tweet(char *s, int client_id)
             ```
            
            
                Sending of message to all the clients( and server) except the sender 
-               itself is done through the help of client_id which tells the sender'id.
+               itself is done through the help of client_id which provides the sender's id.
 
              Similar logic is applied for receiving the messages. 
   
  
-        5.  ```c
+        5. **Client's Address** 
+           ```c
                 void display_user_ip(struct sockaddr_in addr){
                    printf("%d.%d.%d.%d",
                   addr.sin_addr.s_addr & 0xff,
@@ -241,8 +249,73 @@
 
               ```
              Client's address is also displayed by the server usingsin_addr family and some mathematical manipulation of shifting of data. 
-
+        
+       9.  **Threading**
+           ```c
+            pthread_create(&tid, NULL, &handle_client, (void*)client);
+              ```
+             the pthread_create() function starts a new thread in the callng process. It starts by envoking start_routine();arg is passed as the only argument of start_routine() 
               
+       10. ```c
+             pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
+
+           ```      
+           In *multi-threading* Variables of type pthread_mutex_t is initialized statically, using the constants PTHREAD_MUTEX_INITIALIZER (for fast mutexes).
+
+        10. ```c
+             pthread_mutex_lock(&clients_mutex); pthread_mutex_unlock(&clients_mutex);
+              ```      
+              pthread_mutex_lock locks the given mutex. If the mutex is currently unlocked, it becomes locked and owned by the calling thread, and pthread_mutex_lock returns immediately. If the mutex is already locked by another thread, pthread_mutex_lock suspends the calling thread until the mutex is unlocked.    
+
+
+   
+
+   * ### Client-end Working:
+          
+          
+       1. **Creation of socket** 
+               ```c
+               sockfd = socket(AF_INET, SOCK_STREAM, 0);
+               ```  
+               
+           *AF_INET* is an address family that is used to designate the type of   addresses that our socket can communicate with.
+
+             *SOCK_STREAM* means it is a TCP socket.
+      
+          
+       2. **Connecting to servert**
+             ```c
+             connect(sockfd, (struct sockaddr *)&address_server, sizeof(address_server))
+             ```
+             *connect()* function in socket programming is used by client to set-up connection establishment with the server.
+
+     ## *New Features Added in Client-side* :
+
+        1.  **Sending Client's Name To Server**
+          
+             ```c
+              send(sockfd, client_name, MAX_NAME_LENGTH, 0);
+            ```
+            
+            Client shares it's name with the server and gets connected in the portal.
+          
+        2.  **Sending & Receiving Threads**
+              ```c
+                pthread_t send_msg_thread;
+                 if(pthread_create(&send_msg_thread, NULL, (void *) tweet_sending_handler, NULL) != 0){
+                  printf("ERROR: pthread\n");
+                  return EXIT_FAILURE;
+                  }
+              ```  
+         
+            Two threads are used : one for sending the message and other for receiving the message. Sending thread logic has been shown above.
+
+
+          
+            Other logics are same as that mentioned in server side working. 
+
+        
+
 5. ### **Results Obtained**    
       
       Result's output has been shown as a gif above as well as in form of images in steps below :-
@@ -259,25 +332,23 @@
  
    * My future goals associated with the project includes :-
        
-        * Making it more versatile for various purposes:-
+        1. Making it more versatile for various purposes:-
               
-            * Since in the project I have used threads, I would be incorporating *fork* feature also with it. I can be used in handling multiple clients in following way :-
+            * Since in the project I have used threads, I would be incorporating *fork* feature also with it in more productive manner. It can be used in handling multiple clients in following way :-
             
             *  Just like any social media application( like whatsapp), where in a group chat there is an option of privately messaging the particular client at any point of time, in the same fashion I would be integrating this feature as well. It can be made possible using *fork* 
 
-        * Since, in my current project , there is a server which basically tracks all the communication happening among the clients, so adding more features to server(basically giving *admin powers*) would make the project more powerful. Following are the features which I am currently looking forward to work on :-
+        2.  Since, in my current project , there is a server which basically tracks all the communication happening among the clients, so adding more features to server(basically giving *admin powers*) would make the project more powerful. Following are the features which I am currently looking forward to work on :-
             
             * Removing particular client with/without its concern
             
             * Saving the data tracked in a encrypted manner in a text file. Hence,if in future there comes the need to produce the data of what happened durin the past meetings, then it could be displayed by the server(admin).
 
 
-        * In current project, each client enters the meeting through his/her name which is then assigned a unique client id. So, in order to increase the security of the system, proper *authentication* can be set-up wherein client is required to enter his/her Username as well as *password*   
+        3.   In current project, each client enters the meeting through his/her name which is then assigned a unique client id. So, in order to increase the security of the system, proper *authentication* can be set-up wherein client is required to enter his/her Username as well as *password*   
   
-       * Current project takes care of the sharing/transfer of messages/tweets and  history tracker. I would like to ensure sharing of files also. Like there can be transfer of files among clients which includes modification, concatenation of file data.
-
-     * Above mentioned points are just the things which I currently feel would make it more versatile. I am sure there is much more scope on what extra can be integrated and I will continue working on them as well. 
-      
+       4.  Current project takes care of the sharing/transfer of messages/tweets and  history tracker. I would like to ensure sharing of files also. Like there can be transfer of files among clients which includes modification, concatenation of file data.
+     
 
 
 
