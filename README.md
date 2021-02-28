@@ -1,5 +1,33 @@
 # Client Server Communication Using TCP/IP protocol
 
+## Table of contents :
+ * [Client Server Communication Using TCP/IP protocol](#client-server-communication-using-tcpip-protocol)
+       
+      * [<strong>Introduction</strong>](#introduction)
+     
+      * [<strong>How to run</strong>](#how-to-run)
+      
+      * [<strong>Tech Stack Used</strong>](#tech-stack-used)
+     
+      * [<strong>Important Logic Used</strong>](#important-logic-used)
+     
+      * [Server-end Working:](#server-end-working)
+     
+        * [<em>New Features Added in server-side</em> :](#new-features-added-in-server-side-)
+     
+      * [Client-end Working:](#client-end-working)
+     
+        * [<em>New Features Added in Client-side</em> :](#new-features-added-in-client-side-)
+     
+      * [<strong>Results &amp; Outputs Obtained</strong>](#results--outputs-obtained)
+     
+         * [gif](#gif)
+     
+         * [Images:-](#images-)
+     
+      * [<strong>Future goals of the project:</strong>](#future-goals-of-the-project)
+
+
 ## PROJECT (Commom Communication Portal) 
 
 1. ### **Introduction**
