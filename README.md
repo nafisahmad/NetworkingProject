@@ -7,7 +7,7 @@
 
    >TCP/IP or “Transmission Control Protocol / Internet Protocol” is basically a network protocol that defines the details of how data is sent and received in a network.
 
-   >This project creates a common server-client(s) communication portal using TCP/IP Protocol. In layman's term , just like any social media application (say, Whatsapp), it allows a common group chat among all the clients. At the same time server also acts as a history tracker of all the communication happened along with the connection status of each client. 
+   >This project creates a common server-client(s) communication portal using TCP/IP Protocol. In layman's term , just like any social media application (say, Whatsapp), it allows a common group chat among all the clients. At the same time server also acts as a **history tracker** of all the communication happened along with the connection status of each client. 
 
 
 2. ### **How to run**
