@@ -27,10 +27,6 @@
      
       * [<strong>Future goals of the project:</strong>](#future-goals-of-the-project)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9e91cb9cbcc2d20157cca0744fa9d5440676f39d
 ## PROJECT (Commom Communication Portal) 
 
 
@@ -44,7 +40,7 @@
 
 
 2. ### **How to run**
-     <a name="cloning"></a>
+     
    * Cloning The Repository using Terminal
      
      * Open Github:
